@@ -5,18 +5,17 @@ class Solution {
         int[] rightSmall = new int[n];
         Stack<Integer> st = new Stack<>();
         for(int i=0;i<n;i++){
-            while(!st.isEmpty() && heights[st.peek()] >= heights[i]){
+            while(!st.isEmpty() && heights[st.peek()]>=heights[i]){
                 st.pop();
             }
             if(st.isEmpty()){
                 leftSmall[i] = 0;
             }else{
-                leftSmall[i] = st.peek() + 1;
+                leftSmall[i] = st.peek()+1;
             }
             st.push(i);
         }
         while(!st.isEmpty()) st.pop();
-
         for(int i=n-1;i>=0;i--){
             while(!st.isEmpty() && heights[st.peek()] >= heights[i]){
                 st.pop();
@@ -24,13 +23,13 @@ class Solution {
             if(st.isEmpty()){
                 rightSmall[i] = n-1;
             }else{
-                rightSmall[i] = st.peek() - 1;
+                rightSmall[i] = st.peek()-1;
             }
             st.push(i);
         }
         int maxArea = 0;
         for(int i=0;i<n;i++){
-            maxArea = Math.max(maxArea, (rightSmall[i] - leftSmall[i] + 1) * heights[i]);
+            maxArea = Math.max(maxArea, (rightSmall[i] - leftSmall[i] + 1)*heights[i]);
         }
         return maxArea;
     }
