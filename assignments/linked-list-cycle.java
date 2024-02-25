@@ -23,7 +23,7 @@ public class Solution {
                 return true;
             }
         }
-        return false
+        return false;
     }
 }
-https://leetcode.com/problems/linked-list-cycle/
+//https://leetcode.com/problems/linked-list-cycle/
